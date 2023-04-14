@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <OutputType>Library</OutputType>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Description>Simplifica la conexion a la base de datos</Description>
+    <RepositoryUrl>https://github.com/steldark/AcesaNuget.git</RepositoryUrl>
+    <RepositoryType>GIT</RepositoryType>
+    <PackageTags>C# .Net Core3.1</PackageTags>
+    <PackageReleaseNotes>Creacion del proyecto </PackageReleaseNotes>
+    <PackageProjectUrl>https://github.com/steldark/AcesaNuget.git</PackageProjectUrl>
+    <NeutralLanguage>es-MX</NeutralLanguage>
+    <AssemblyVersion>2.1.1.0</AssemblyVersion>
+    <FileVersion>2.1.1.0</FileVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Capa\**" />
+    <Compile Remove="Conexion\Acces\**" />
+    <Compile Remove="Modulos\**" />
+    <EmbeddedResource Remove="Capa\**" />
+    <EmbeddedResource Remove="Conexion\Acces\**" />
+    <EmbeddedResource Remove="Modulos\**" />
+    <None Remove="Capa\**" />
+    <None Remove="Conexion\Acces\**" />
+    <None Remove="Modulos\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Estructura\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+  </ItemGroup>
+
+</Project>
