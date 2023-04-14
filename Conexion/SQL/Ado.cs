@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text;
 
 namespace ConexionBaseDatos.Conexion.SQL
 {
@@ -10,19 +8,14 @@ namespace ConexionBaseDatos.Conexion.SQL
     {
         #region Constructor
 
-        public Ado() { }
-
-        public Ado(string cadenaConexion)
-        {
-            _cadenaConexion = cadenaConexion;
-        }
+        public Ado(string cadenaConexion) { _cadenaConexion = cadenaConexion; }
 
         #endregion
 
         #region Propiedades
 
         /// <summary>
-        /// 
+        /// Cadena de conexion
         /// </summary>
         private string _cadenaConexion = string.Empty;
 
@@ -93,10 +86,10 @@ namespace ConexionBaseDatos.Conexion.SQL
         private void cerrarConexion() { conexion.Close(); }
 
         /// <summary>
-        /// 
+        /// Ejecuta un sp
         /// </summary>
-        /// <param name="opc"></param>
-        /// <returns></returns>
+        /// <param name="opc">Objeto ParametrosSp que contiene la informacion del sp o consulta a ejecutar</param>
+        /// <returns>Regresa un DataSet con los resultados o null en caso de existir algun problema</returns>
         public DataSet spDataSet(ParametrosSP opc)
         {
             _msg = string.Empty;
@@ -134,10 +127,10 @@ namespace ConexionBaseDatos.Conexion.SQL
         }
 
         /// <summary>
-        /// Ejecuta Sp y regresa solo el primer dataTable encontrado
+        /// Ejecuta un sp
         /// </summary>
-        /// <param name="opc"></param>
-        /// <returns></returns>
+        /// <param name="opc">Objeto ParametrosSp que contiene la informacion del sp o consulta a ejecutar</param>
+        /// <returns>Regresa un DataTable con la primera tabla encontrada con los resultados o null en caso de existir algun problema</returns>
         public DataTable spDataTable(ParametrosSP opc)
         {
             _msg = string.Empty;
@@ -174,10 +167,10 @@ namespace ConexionBaseDatos.Conexion.SQL
         }
 
         /// <summary>
-        /// 
+        /// Ejecuta un sp PlantillaCRUD
         /// </summary>
-        /// <param name="opc"></param>
-        /// <returns></returns>
+        /// <param name="opc">Objeto ParametrosSp que contiene la informacion del sp o consulta a ejecutar</param>
+        /// <returns>Regresa un DataTable con la primera tabla encontrada con los resultados o null en caso de existir algun problema</returns>
         public DataTable spPlantillaCRUD(ParametrosSP opc)
         {
             _msg = string.Empty;
@@ -198,10 +191,10 @@ namespace ConexionBaseDatos.Conexion.SQL
         }
 
         /// <summary>
-        /// 
+        /// Ejecuta un query
         /// </summary>
-        /// <param name="opc"></param>
-        /// <returns></returns>
+        /// <param name="opc">Objeto ParametrosSp que contiene la informacion del sp o consulta a ejecutar</param>
+        /// <returns>Regresa un DataSet los resultados o null en caso de existir algun problema</returns>
         public DataSet queryDataSet(ParametrosSP opc)
         {
             _msg = string.Empty;
@@ -235,10 +228,10 @@ namespace ConexionBaseDatos.Conexion.SQL
         }
 
         /// <summary>
-        /// Metodo que directamente ejecuta un sql especificado en el objeto parametrosSP
+        /// Ejecuta un query
         /// </summary>
-        /// <param name="opc"></param>
-        /// <returns></returns>
+        /// <param name="opc">Objeto ParametrosSp que contiene la informacion del sp o consulta a ejecutar</param>
+        /// <returns>Regresa un DataTable con la primera tabla encontrada con los resultados o null en caso de existir algun problema</returns>
         public DataTable queryDataTable(ParametrosSP opc)
         {
             _msg = string.Empty;

@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text;
 
 namespace ConexionBaseDatos.Conexion.SQL
 {
+    /// <summary>
+    /// Esta clase carga los parametros nesesarios para la ejecucion de un Sp y tambien permite cargar una consulta sql 
+    /// </summary>
     public class ParametrosSP
     {
         #region Constructor
@@ -45,8 +46,9 @@ namespace ConexionBaseDatos.Conexion.SQL
         /// <summary>
         /// Verifica si el nombre del parametro es valido para usar
         /// </summary>
-        /// <param name="k"></param>
-        /// <returns></returns>
+        /// <param name="key">Nombre del parametro</param>
+        /// <param name="outKey">Regresa el nombre del parametro con el formato adecuado</param>
+        /// <returns>Indica true en caso de que el valor de "key" sea un valor no vacio ni nulo, en caso contrario regresa false</returns>
         private bool validKey(string key, out string outKey)
         {
             outKey = key;
@@ -59,11 +61,11 @@ namespace ConexionBaseDatos.Conexion.SQL
         }
 
         /// <summary>
-        /// 
+        /// Permite agregar parametros
         /// </summary>
-        /// <param name="key"></param>
-        /// <param name="tipoDato"></param>
-        /// <param name="val"></param>
+        /// <param name="key">Nombre del parametro</param>
+        /// <param name="tipoDato">Enumerador SqlDbType que indica el tipo de dato</param>
+        /// <param name="val">Valor que se agrega al parametro</param>
         public void AddParametro(string key, SqlDbType tipoDato, object val)
         {
             string outKey = string.Empty;
@@ -90,10 +92,10 @@ namespace ConexionBaseDatos.Conexion.SQL
         }
 
         /// <summary>
-        /// permite agregar cualquier parametro al sp
+        /// Permite agregar cualquier parametro al sp
         /// </summary>
-        /// <param name="key"></param>
-        /// <param name="val"></param>
+        /// <param name="key">Nombre del parametro</param>
+        /// <param name="val">Valor del parametro</param>
         public void AddParametro(string key, object val)
         {
             string outKey = string.Empty;
@@ -107,8 +109,8 @@ namespace ConexionBaseDatos.Conexion.SQL
         /// <summary>
         /// Permite agregar imagenes a la base de datos
         /// </summary>
-        /// <param name="key"></param>
-        /// <param name="img"></param>
+        /// <param name="key">Nombre del parametro</param>
+        /// <param name="img">Imagen en un arreglo de byte</param>
         public void AddParametro(string key, byte[] img)
         {
             string outKey = string.Empty;

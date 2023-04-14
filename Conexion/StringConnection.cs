@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Text.Json;
 using System.Data.SqlClient;
 
@@ -16,10 +14,10 @@ namespace ConexionBaseDatos.Conexion
         public StringConnection() { }
 
         /// <summary>
-        /// 
+        /// Constructor que permite agregar cadena de conexion
         /// </summary>
-        /// <param name="cadenaConexion"></param>
-        /// <param name="nombre"></param>
+        /// <param name="cadenaConexion">Cadena de conexion que se agrega a la clase</param>
+        /// <param name="nombre">Nombre de la cadena de conexion</param>
         public StringConnection(string cadenaConexion, string nombre = "")
         {
             _nombreCadena = obtenerNombre(nombre);
@@ -32,22 +30,22 @@ namespace ConexionBaseDatos.Conexion
         #region Propiedades
 
         /// <summary>
-        /// 
+        /// Objeto que almacena la ultima cadena de conexion agregada
         /// </summary>
         private SqlConnectionStringBuilder _stringConnect = new SqlConnectionStringBuilder();
 
         /// <summary>
-        /// 
+        /// Nombre de la ultima cadena de conexion agregada
         /// </summary>
         private string _nombreCadena = string.Empty;
 
         /// <summary>
-        /// 
+        /// Listado de las cadenas de conexion agregadas al objeto
         /// </summary>
         private Dictionary<string, SqlConnectionStringBuilder> _listStringConnect = new Dictionary<string, SqlConnectionStringBuilder>();
 
         /// <summary>
-        /// 
+        /// Regresa el listado de las cadenas de conexion
         /// </summary>
         public Dictionary<string, SqlConnectionStringBuilder> ListaCadenaConexion
         {
@@ -55,7 +53,7 @@ namespace ConexionBaseDatos.Conexion
         }
 
         /// <summary>
-        /// 
+        /// Regresa la ultima cadena de conexion agregada
         /// </summary>
         public string CadenaDeConexion
         {
@@ -63,7 +61,7 @@ namespace ConexionBaseDatos.Conexion
         }
 
         /// <summary>
-        /// 
+        /// Regresa el nombre de la ultima cadena de conexion agregada
         /// </summary>
         public string NombreConexion
         {
