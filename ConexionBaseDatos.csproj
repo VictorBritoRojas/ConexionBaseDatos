@@ -6,14 +6,22 @@
     <OutputType>Library</OutputType>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Description>Simplifica la conexion a la base de datos</Description>
-    <RepositoryUrl>https://github.com/steldark/AcesaNuget.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/VictorBritoRojas/ConexionBaseDatos.git</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
-    <PackageTags>C# .Net Core3.1</PackageTags>
-    <PackageReleaseNotes>Creacion del proyecto </PackageReleaseNotes>
-    <PackageProjectUrl>https://github.com/steldark/AcesaNuget.git</PackageProjectUrl>
+    <PackageTags>C# .Net Core3.1 SQL</PackageTags>
+    <PackageReleaseNotes>Correcciones menores
+Cambios de nombre a metodos</PackageReleaseNotes>
+    <PackageProjectUrl>https://github.com/VictorBritoRojas/ConexionBaseDatos.git</PackageProjectUrl>
     <NeutralLanguage>es-MX</NeutralLanguage>
     <AssemblyVersion>2.1.1.0</AssemblyVersion>
     <FileVersion>2.1.1.0</FileVersion>
+    <Company>Victor Brito Rojas</Company>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Title>ConexionBaseDatos</Title>
+    <Version>2.1.1.0</Version>
+    <Authors>Keima</Authors>
+    <Product>ConexionBaseDatos</Product>
+    <PackageId>ConexionBaseDatos</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -34,6 +42,13 @@
 
   <ItemGroup>
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
