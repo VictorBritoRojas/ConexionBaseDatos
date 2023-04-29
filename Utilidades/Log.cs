@@ -10,6 +10,12 @@ namespace ConexionBaseDatos.Utilidades
     /// </summary>
     public class Log
     {
+        public Log() { _ruta = Environment.CurrentDirectory; }
+
+        public Log(string rutaLog) { _ruta = rutaLog; }
+
+        private static string _ruta = Environment.CurrentDirectory;
+
         /// <summary>
         /// Enumerador que indica el tipo de registro
         /// </summary>
@@ -21,7 +27,7 @@ namespace ConexionBaseDatos.Utilidades
         /// <summary>
         /// Ruta que indica el lugar donde se guardara el archivo
         /// </summary>
-        public static string RutaLog { get { return string.Concat(Environment.CurrentDirectory,"\\Log ",DateTime.Now.ToString("yyyy-MM-dd"),".txt"); } }
+        public static string RutaLog { get { return string.Concat(_ruta, "\\Log ", DateTime.Now.ToString("yyyy-MM-dd"), ".txt"); } }
 
         /// <summary>
         /// Metodo que guarda el registro dentro del archivo log
@@ -29,16 +35,12 @@ namespace ConexionBaseDatos.Utilidades
         /// <param name="mensaje">Objeto que guarda el mensaje a guardar</param>
         public static void guardarLog(MensajeLog mensaje)
         {
-            StreamWriter log;
-            FileStream fileStream = null;
+            if (!File.Exists(RutaLog)) { File.Create(RutaLog); }
 
-            string tmp = RutaLog;
-            if (!File.Exists(tmp)) { File.Create(tmp); }
-            fileStream = new FileStream(tmp, FileMode.Append);
-            log = new StreamWriter(fileStream);
-            log.WriteLine(string.Format("[{0}] -- Mensaje: {1}",DateTime.Now.ToShortTimeString(),mensaje.ToString()));
-            log.Flush();
-            log.Close();
+            using (StreamWriter log = File.AppendText(RutaLog))
+            {
+                log.WriteLine(string.Format("[{0}] -- Mensaje: {1}", DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"), mensaje.ToString()));
+            }
         }
 
         /// <summary>

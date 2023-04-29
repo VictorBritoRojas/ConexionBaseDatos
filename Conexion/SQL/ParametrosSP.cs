@@ -13,21 +13,16 @@ namespace ConexionBaseDatos.Conexion.SQL
 
         public ParametrosSP() { }
 
-        public ParametrosSP(string _sp, string query) { Sp = _sp; Query = query; }
+        public ParametrosSP(string comanText) { Texto = comanText; }
 
         #endregion
 
         #region Propiedades
 
         /// <summary>
-        /// nombre del Store Procedure que se usara 
+        /// nombre del Store Procedure o query a ejecutar
         /// </summary>
-        public string Sp { set; get; } = string.Empty;
-
-        /// <summary>
-        /// Consulta de sql a ejecutar
-        /// </summary>
-        public string Query { set; get; } = string.Empty;
+        public string Texto { set; get; } = string.Empty;
 
         /// <summary>
         /// Default @opc
